@@ -1,0 +1,174 @@
+:root {
+    /* פלטת צבעים - סעיף 74 */
+    --bg-main: #08090C;
+    --surface-main: #111318;
+    --surface-secondary: #181B22;
+    --surface-tertiary: #21252E;
+    --border-regular: #FFFFFF14;
+    --border-highlight: #FFFFFF29;
+    --text-main: #ECE9E1;
+    --text-secondary: #B9BCC6;
+    --text-dim: #8B8F9C;
+    --accent-main: #9FB0FF;
+    --accent-secondary: #C9B7FF;
+    --text-on-accent: #0B0D1A;
+    --error: #FF7A6E;
+    --success: #7FD6A4;
+    --warning: #F0C36B;
+    
+    /* טיפוגרפיה - סעיף 75 */
+    --font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    direction: rtl;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* רוחב ופריסה - סעיף 77 */
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.screen {
+    display: none;
+    min-height: 100vh;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* הדרים */
+.app-header {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-regular);
+}
+
+.app-header h1, .app-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.app-header.has-back {
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+/* כרטיסים - סעיף 78 */
+.card {
+    background-color: var(--surface-main);
+    border: 1px solid var(--border-regular);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: background-color 0.2s;
+}
+
+.card.clickable {
+    cursor: pointer;
+}
+
+.card.clickable:active {
+    background-color: var(--surface-secondary);
+}
+
+.card h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.text-dim {
+    color: var(--text-dim);
+    font-size: 0.875rem;
+}
+
+/* כפתורים - סעיף 79 */
+.btn {
+    min-height: 46px;
+    border-radius: 12px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    padding: 0 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.btn.full-width {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.btn.primary {
+    background-color: var(--accent-main);
+    color: var(--text-on-accent);
+}
+
+.btn.primary:active {
+    opacity: 0.8;
+}
+
+.btn.secondary {
+    background-color: var(--surface-secondary);
+    color: var(--text-main);
+    border: 1px solid var(--border-regular);
+}
+
+.btn.ghost {
+    background-color: transparent;
+    color: var(--accent-main);
+    padding: 0 12px;
+}
+
+/* שדות קלט - סעיף 80 */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.input-group input {
+    min-height: 46px;
+    background-color: var(--surface-secondary);
+    border: 1px solid var(--border-regular);
+    border-radius: 12px;
+    color: var(--text-main);
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    direction: ltr; /* מספרים מוצגים משמאל לימין */
+    text-align: right;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-main);
+}
