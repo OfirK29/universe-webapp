@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Universe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- מסך הבית -->
+    <div id="home-screen" class="screen active">
+        <header class="app-header">
+            <h1>Universe</h1>
+        </header>
+        <main class="container">
+            <div class="main-actions">
+                <button class="btn primary full-width" onclick="app.navigate('performance')">הפעל הופעה</button>
+                <button class="btn secondary full-width" onclick="app.navigate('rehearsal')">תרגול</button>
+            </div>
+            
+            <div class="settings-list">
+                <div class="card clickable" onclick="app.navigate('settings-target')">
+                    <div class="card-content">
+                        <h3>מספר יעד וימי הולדת</h3>
+                        <p class="text-dim">הגדרת תוצאת השיא ואופן החשיפה</p>
+                    </div>
+                </div>
+                <div class="card clickable" onclick="app.navigate('settings-performance')">
+                    <div class="card-content">
+                        <h3>הופעה</h3>
+                        <p class="text-dim">טריגרים, חלונות קליטה ונעילה</p>
+                    </div>
+                </div>
+                <div class="card clickable" onclick="app.navigate('diagnostics')">
+                    <div class="card-content">
+                        <h3>בקרות ואבחון</h3>
+                        <p class="text-dim">בדיקת תאימות מכשיר ומיקרופון</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- מסך מספר יעד וימי הולדת (הכנה) -->
+    <div id="settings-target-screen" class="screen">
+        <header class="app-header has-back">
+            <button class="btn ghost" onclick="app.navigate('home')">חזור</button>
+            <h2>מספר יעד וימי הולדת</h2>
+        </header>
+        <main class="container">
+            <div class="card">
+                <div class="input-group">
+                    <label for="forceNumber">מספר יעד</label>
+                    <input type="number" id="forceNumber" placeholder="הכנס מספר" onchange="app.updateSetting('forceNumber', this.value)">
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- מסך הופעה (ריק כרגע, יפותח בהמשך) -->
+    <div id="performance-screen" class="screen performance-mode">
+        <!-- מסך זה יהיה נקי לחלוטין וישלט על ידי מחוות -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
