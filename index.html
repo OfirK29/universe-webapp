@@ -14,7 +14,8 @@
         </header>
         <main class="container">
             <div class="main-actions">
-                <button class="btn primary full-width" onclick="app.navigate('performance')">הפעל הופעה</button>
+                <!-- הכפתור כעת מפעיל את מנגנון ההופעה -->
+                <button class="btn primary full-width" onclick="app.performance.start()">הפעל הופעה</button>
                 <button class="btn secondary full-width" onclick="app.navigate('rehearsal')">תרגול</button>
             </div>
             
@@ -25,23 +26,11 @@
                         <p class="text-dim">הגדרת תוצאת השיא ואופן החשיפה</p>
                     </div>
                 </div>
-                <div class="card clickable" onclick="app.navigate('settings-performance')">
-                    <div class="card-content">
-                        <h3>הופעה</h3>
-                        <p class="text-dim">טריגרים, חלונות קליטה ונעילה</p>
-                    </div>
-                </div>
-                <div class="card clickable" onclick="app.navigate('diagnostics')">
-                    <div class="card-content">
-                        <h3>בקרות ואבחון</h3>
-                        <p class="text-dim">בדיקת תאימות מכשיר ומיקרופון</p>
-                    </div>
-                </div>
             </div>
         </main>
     </div>
 
-    <!-- מסך מספר יעד וימי הולדת (הכנה) -->
+    <!-- מסך מספר יעד וימי הולדת -->
     <div id="settings-target-screen" class="screen">
         <header class="app-header has-back">
             <button class="btn ghost" onclick="app.navigate('home')">חזור</button>
@@ -51,15 +40,27 @@
             <div class="card">
                 <div class="input-group">
                     <label for="forceNumber">מספר יעד</label>
-                    <input type="number" id="forceNumber" placeholder="הכנס מספר" onchange="app.updateSetting('forceNumber', this.value)">
+                    <input type="number" id="forceNumber" placeholder="הכנס מספר (למשל 100)" onchange="app.updateSetting('forceNumber', this.value)">
                 </div>
             </div>
         </main>
     </div>
 
-    <!-- מסך הופעה (ריק כרגע, יפותח בהמשך) -->
+    <!-- מסך הופעה דיסקרטי -->
     <div id="performance-screen" class="screen performance-mode">
-        <!-- מסך זה יהיה נקי לחלוטין וישלט על ידי מחוות -->
+        <!-- מחוון מצב -->
+        <div id="status-indicator" class="indicator waiting"></div>
+        
+        <!-- אזור חשיפת התוצאה -->
+        <div id="reveal-container" class="hidden" onclick="app.performance.handleScreenTap()">
+            <div id="peak-number"></div>
+        </div>
+
+        <!-- אזור מרכזי נסתר להצגת התוצאה בלחיצה -->
+        <div class="secret-trigger" onclick="app.performance.handleScreenTap()"></div>
+
+        <!-- מחוות יציאה בפינה השמאלית התחתונה -->
+        <div class="secret-exit" onpointerdown="app.performance.exit(event)"></div>
     </div>
 
     <script src="app.js"></script>
